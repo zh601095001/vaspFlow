@@ -1,0 +1,44 @@
+version: "3.7"
+services:
+  front:
+    image: zhlcy2022/front
+    build: ./front
+    volumes:
+      - ./front:/app/front
+    command: sh -c "yarn install && yarn run dev"
+    ports:
+      - "3000:3000"
+  backend:
+    image: zhlcy2022/backend
+    build: ./backend/server
+    volumes:
+      - ./backend/server:/app/backend/server
+    command: sh -c "yarn install && yarn run dev"
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URI: mongodb://root:example@mongo:27017/
+      PORT: 8000
+
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+      - mongo_data:/data
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+  mongo-express:
+    image: mongo-express:latest
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+
+volumes:
+  mongo_data:
