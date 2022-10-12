@@ -18,6 +18,26 @@
         "tags": [
           "db"
         ],
+        "parameters": [
+          {
+            "name": "db",
+            "in": "query",
+            "schema": {
+              "title": "Database",
+              "type": "string",
+              "default": "defaultDb"
+            }
+          },
+          {
+            "name": "collection",
+            "in": "query",
+            "schema": {
+              "title": "Collection",
+              "type": "string",
+              "default": "defaultCollection"
+            }
+          }
+        ],
         "summary": "modify",
         "requestBody": {
           "content": {
@@ -45,6 +65,26 @@
       "post": {
         "tags": [
           "db"
+        ],
+        "parameters": [
+          {
+            "name": "db",
+            "in": "query",
+            "schema": {
+              "title": "Database",
+              "type": "string",
+              "default": "defaultDb"
+            }
+          },
+          {
+            "name": "collection",
+            "in": "query",
+            "schema": {
+              "title": "Collection",
+              "type": "string",
+              "default": "defaultCollection"
+            }
+          }
         ],
         "summary": "create",
         "requestBody": {
@@ -104,6 +144,24 @@
             },
             "name": "limit",
             "in": "query"
+          },
+          {
+            "name": "db",
+            "in": "query",
+            "schema": {
+              "title": "Database",
+              "type": "string",
+              "default": "defaultDb"
+            }
+          },
+          {
+            "name": "collection",
+            "in": "query",
+            "schema": {
+              "title": "Collection",
+              "type": "string",
+              "default": "defaultCollection"
+            }
           }
         ],
         "responses": {
@@ -122,6 +180,26 @@
       "delete": {
         "tags": [
           "db"
+        ],
+        "parameters": [
+          {
+            "name": "db",
+            "in": "query",
+            "schema": {
+              "title": "Database",
+              "type": "string",
+              "default": "defaultDb"
+            }
+          },
+          {
+            "name": "collection",
+            "in": "query",
+            "schema": {
+              "title": "Collection",
+              "type": "string",
+              "default": "defaultCollection"
+            }
+          }
         ],
         "summary": "delete",
         "requestBody": {
