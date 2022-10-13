@@ -25,7 +25,7 @@ services:
     command: --wiredTigerCacheSizeGB 2
     restart: always
     volumes:
-      - type: volume
+      - type: bind
         source: /data/db
         target: /data/db
         volume:
