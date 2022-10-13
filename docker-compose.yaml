@@ -25,11 +25,7 @@ services:
     command: --wiredTigerCacheSizeGB 2
     restart: always
     volumes:
-      - type: bind
-        source: /data/db
-        target: /data/db
-        volume:
-          nocopy: true
+      - /data/db:/data/db
     ports:
       - "27017:27017"
     environment:
