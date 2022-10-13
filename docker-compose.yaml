@@ -26,7 +26,7 @@ services:
     restart: always
     volumes:
       - type: volume
-        source: db_data
+        source: /data/db
         target: /data/db
         volume:
           nocopy: true
