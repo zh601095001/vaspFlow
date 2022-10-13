@@ -3,6 +3,8 @@ services:
   front:
     image: zhlcy2022/front
     build: ./front
+    depends_on:
+      - backend
     volumes:
       - ./front:/app/front
     command: sh -c "yarn install && yarn run dev"
@@ -11,6 +13,8 @@ services:
   backend:
     image: zhlcy2022/backend
     build: ./backend/server
+    depends_on:
+      - mongo
     volumes:
       - ./backend/server:/app/backend/server
     command: sh -c "yarn install && yarn run dev"
@@ -33,6 +37,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
   mongo-express:
     image: mongo-express:latest
+    depends_on:
+      - mongo
     restart: always
     ports:
       - "8081:8081"
