@@ -119,15 +119,6 @@
           {
             "required": false,
             "schema": {
-              "title": "ID",
-              "type": "string"
-            },
-            "name": "id",
-            "in": "query"
-          },
-          {
-            "required": false,
-            "schema": {
               "title": "Skip",
               "type": "integer",
               "default": 0
