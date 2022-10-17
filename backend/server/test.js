@@ -2,7 +2,7 @@ class A{
     // [Symbol.toStringTag] = "A"
     constructor(arg1) {
         this.arg1 = arg1
-        this[Symbol.toStringTag] = "A"
+        // this[Symbol.toStringTag] = "A"
     }
     log(){
         console.log(this.arg1)
@@ -11,4 +11,3 @@ class A{
 let a = new A()
 a.log()
 console.log(Object.prototype.toString.call(a));
-console.log(a.constructor)
