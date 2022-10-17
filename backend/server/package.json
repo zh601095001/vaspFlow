@@ -24,6 +24,7 @@
     "http-status": "^1.5.2",
     "jsonwebtoken": "^8.5.1",
     "minimist": "^1.2.6",
+    "mongo-dot-notation": "^3.1.0",
     "mongodb": "^4.9.0",
     "mongoose": "^6.0.11",
     "uuid": "^8.3.2",
