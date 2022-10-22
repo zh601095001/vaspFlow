@@ -41,10 +41,9 @@ app.use(cookieParser());
 app.use('/', express.static(path.join(__dirname, '/public')));
 
 // routes
-app.use("/docs", require("./routes/swaggerUI"))
 app.use('/', require('./routes/root'));
+app.use("/docs", require("./routes/swaggerUI"))
 app.use("/db", require("./routes/db"))
-app.use("/file",require("./routes/gridFs"))
 
 app.all('*', (req, res) => {
 	res.status(404);

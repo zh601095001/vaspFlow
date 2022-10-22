@@ -1,7 +1,7 @@
 {
-  "name": "htsct",
+  "name": "dbserver",
   "version": "1.0.0",
-  "description": "High throughput computing tools server",
+  "description": "database server",
   "main": "server.js",
   "scripts": {
     "start": "node server",

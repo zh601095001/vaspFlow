@@ -56,11 +56,8 @@ app.all('*', (req, res) => {
 
 app.use(errorHandler);
 
-mongoose.connection.once('open', () => {
-	const DB_URL = argv.db || process.env.DATABASE_URI
-	console.log(`Connected to MongoDB ${DB_URL}`);
-	app.listen(PORT, () => {
-		const host = 'http://localhost'
-		console.log(`Server running at ${host}:${PORT}\nDocs: ${host}:${PORT}/docs`)
-	});
+
+app.listen(PORT, () => {
+	const host = 'http://localhost'
+	console.log(`Server running at ${host}:${PORT}\nDocs: ${host}:${PORT}/docs`)
 });
