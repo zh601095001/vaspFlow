@@ -10,6 +10,17 @@ const getItems = async (req, res) => {
     const count = await req.collection.countDocuments()
     res.json({data, count, skip, limit})
 }
+const queryItems = async (req, res) => {
+    let {limit, skip} = req.query
+    limit = limit ? Number(limit) : 10
+    skip = skip ? Number(skip) : 0
+    console.log(req.body)
+    const cur = req.collection.find({...req.body})
+    const count = await req.collection.countDocuments({...req.body})
+    const page = cur.skip(skip).limit(limit)
+    const data = await page.toArray()
+    res.json({data, count, skip, limit})
+}
 const addItems = async (req, res) => {
     try {
         const data = req.body
@@ -30,7 +41,9 @@ const addItems = async (req, res) => {
 
 }
 const modifyItems = async (req, res) => {
+    console.log(req.body)
     const updateOne = async ({_id, ...extras}) => {
+        console.log(flatten(extras))
         return await req.collection.updateMany({_id}, flatten(extras))
     }
     if (req.body instanceof Array) {
@@ -64,7 +77,8 @@ module.exports = {
     getItems,
     modifyItems,
     deleteItems,
-    addItems
+    addItems,
+    queryItems
 }
 
 

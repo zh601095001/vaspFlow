@@ -4,6 +4,7 @@ const dbController = require("../controllers/dbController")
 
 
 router.get("/", dbController.getItems)
+router.post("/s",dbController.queryItems)
 router.post("/", dbController.addItems)
 router.put("/", dbController.modifyItems)
 router.delete("/", dbController.deleteItems)
